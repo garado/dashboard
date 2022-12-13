@@ -5,8 +5,8 @@
 import 'package:flutter/material.dart';
 import 'package:global_configuration/global_configuration.dart';
 
-import 'navrail.dart';
 import 'home/screen.dart';
+import 'agenda/screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); /* ??? */
@@ -29,17 +29,12 @@ class MyApp extends StatelessWidget {
           bodyColor: const Color(0xFFDCD7BA)
         ),
       ),
-      home: Scaffold(
-          body: Center(
-            child: Row(
-              children: [
-                const NavRail(),
-                HomeTab(),
-                //AgendaTab(),
-              ],
-            )
-          )
-        ),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const HomeScreen(),
+        '/agenda': (context) => const AgendaScreen(),
+      },
+      themeAnimationDuration: Duration.zero,
     );
   }
 }

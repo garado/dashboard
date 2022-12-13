@@ -5,11 +5,28 @@
 
 import 'package:flutter/material.dart';
 import '../utils.dart';
+import '../navrail.dart';
 import 'widget.dart';
 
 /* Assemble all widgets */
+class AgendaScreen extends StatelessWidget {
+  const AgendaScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Row(
+          children: [
+            const NavRail(),
+            _AgendaScreen(),
+          ],
+          ),
+      )
+    );
+  }
+}
 
-class AgendaTab extends StatelessWidget {
+class _AgendaScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -31,4 +48,3 @@ class AgendaTab extends StatelessWidget {
     );
   }
 }
-

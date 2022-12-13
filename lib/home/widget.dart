@@ -29,15 +29,9 @@ class Profile extends StatelessWidget {
             height: 100,
           ),
         ),
-        RichText(
-          text: TextSpan(
-            text: displayname,
-            style: const TextStyle(
-              fontSize: 22,
-              color: Color(0xFF2D4F67),
-            ),
-          ), 
-        ),
+        WidgetHeader(
+          text: displayname,
+          color: const Color(0xFF2D4F67)),
         Text(title),
       ],
     );
@@ -52,7 +46,7 @@ class DateAndTime extends StatelessWidget {
   Widget build(BuildContext context) {
     DateTime now = DateTime.now();
     String time = DateFormat('kk:mm').format(now);
-    String date = DateFormat('EEE d MMM').format(now);
+    String date = DateFormat('EEE MMMM d').format(now);
     
     return Column(
       children: [
@@ -61,8 +55,8 @@ class DateAndTime extends StatelessWidget {
           text: TextSpan(
             text: time,
             style: const TextStyle(
-              fontSize: 30,
-              color: Color(0xFF2D4F67),
+              fontSize: 40,
+              color: Color(0xFFDCD7BA),
             ),
           ),
         ),
@@ -70,7 +64,9 @@ class DateAndTime extends StatelessWidget {
           text: TextSpan(
             text: date,
             style: const TextStyle(
-              color: Color(0xFFDCD7BA),
+              fontSize: 20,
+              color: Color(0xFF2D4F67),
+              fontFamily: 'RobotoMono',
             ),
           ),
         ),
@@ -90,11 +86,18 @@ class Goals extends StatelessWidget {
     return Column (
       children: [
         const WidgetHeader(text: 'Current Goals'),
-        Text(goals[0]), // TODO: make for loop
+        Text(goals[0]), // TODO: generate with for loop
         Text(goals[1]),
         Text(goals[2]),
       ]
     );
+  }
+}
+
+class MusicPlayer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return const Text('Music player');
   }
 }
 

@@ -6,11 +6,20 @@
 
 import 'package:flutter/material.dart';
 
+/* █░█░█ █ █▀▄ █▀▀ █▀▀ ▀█▀ █▀ */ 
+/* ▀▄▀▄▀ █ █▄▀ █▄█ ██▄ ░█░ ▄█ */ 
+
 /* Creates widget header 
- * @param text  The header text */
+ * @param text  The header text
+ * @param color The text color */
 class WidgetHeader extends StatelessWidget {
+  const WidgetHeader ({
+    Key? key, 
+    @required this.text, 
+    this.color = const Color(0xFF2D4F67) }) : super(key: key); /* the hell is this */
+  
   final String? text;
-  const WidgetHeader ({Key? key, @required this.text}) : super(key: key); /* the hell is this */
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +28,10 @@ class WidgetHeader extends StatelessWidget {
         RichText(
           text: TextSpan(
             text: text,
-            style: const TextStyle(
+            style: TextStyle(
+              fontFamily: 'RobotoMono',
               fontSize: 22,
-              color: Color(0xFFDCD7BA),
+              color: color,
             ),
           ),
         ),
@@ -34,10 +44,16 @@ class WidgetHeader extends StatelessWidget {
 }
 
 /* Creates a box around a widget
- * @param w   The widget to be boxed */
+ * @param w   The widget to be boxed
+ * @param bg  The background color of the box */
 class Box extends StatelessWidget {
+  const Box ({
+    Key? key, 
+    @required this.w, 
+    this.bg = const Color(0xFF1F1F28) }) : super(key: key); /* the hell is this */
+  
   final Widget? w;
-  const Box ({Key? key, @required this.w}) : super(key: key); /* the hell is this */
+  final Color? bg;
 
   @override
   Widget build(BuildContext context) {
@@ -45,9 +61,9 @@ class Box extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.all(10.0),
         padding: const EdgeInsets.all(20.0),
-        decoration: const BoxDecoration(
-          color: Color(0xFF232331),
-          borderRadius: BorderRadius.all(Radius.circular(8))
+        decoration: BoxDecoration(
+          color: bg,
+          borderRadius: const BorderRadius.all(Radius.circular(8))
         ),
         child: w,
       ),
@@ -55,4 +71,11 @@ class Box extends StatelessWidget {
   }
 }
 
+/* █▀▀ ▄▀█ █▀▀ █░█ █▀▀ */ 
+/* █▄▄ █▀█ █▄▄ █▀█ ██▄ */ 
 
+/* Check cache file exists */
+
+/* Create cache file */
+
+/* Write to cache file */

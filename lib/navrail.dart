@@ -14,10 +14,21 @@ class NavRail extends StatefulWidget {
 class _NavRail extends State<NavRail> {
   int _selectedIndex = 0;
 
+  final routes = [ 
+    '/', 
+    '/agenda', 
+    '/agenda', 
+    '/agenda', 
+    '/agenda', 
+    '/agenda', 
+  ];
+
   changeDestination(int index) {
     setState(() {
       _selectedIndex = index;
     });
+    Navigator.pop(context);
+    Navigator.pushNamed(context, routes[index]);
   }
 
   @override
