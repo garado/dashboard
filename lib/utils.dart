@@ -14,11 +14,21 @@ class WidgetHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RichText(
-      text: TextSpan(
-        text: text,
-        style: DefaultTextStyle.of(context).style,
-      ),
+    return Column(
+      children: [
+        RichText(
+          text: TextSpan(
+            text: text,
+            style: const TextStyle(
+              fontSize: 22,
+              color: Color(0xFFDCD7BA),
+            ),
+          ),
+        ),
+        const Padding(
+          padding: EdgeInsets.all(5.0),
+        ),
+      ],
     );
   }
 }
@@ -34,10 +44,10 @@ class Box extends StatelessWidget {
     return Center(
       child: Container(
         margin: const EdgeInsets.all(10.0),
-        padding: const EdgeInsets.all(10.0),
-        decoration: BoxDecoration(
-          color: Colors.blue[300],
-          borderRadius: const BorderRadius.all(Radius.circular(8))
+        padding: const EdgeInsets.all(20.0),
+        decoration: const BoxDecoration(
+          color: Color(0xFF232331),
+          borderRadius: BorderRadius.all(Radius.circular(8))
         ),
         child: w,
       ),

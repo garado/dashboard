@@ -1,78 +1,43 @@
 
-/* █░█ █▀█ █▀▄▀█ █▀▀    ▀█▀ ▄▀█ █▄▄ */ 
-/* █▀█ █▄█ █░▀░█ ██▄    ░█░ █▀█ █▄█ */ 
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:global_configuration/global_configuration.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 import 'dart:math';
-
-import 'utils.dart';
-
-/* Assemble widgets */
-class HomeTab extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Row (
-      children: [ 
-      // COLUMN 1
-      Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Profile(),
-          Box( w: DateAndTime() ),
-          Box( w: Goals() ),
-        ],
-      ),
-     
-      // COLUMN 2
-      Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Box( w: UpcomingEvents() ),
-          Box( w: UpcomingTasks() ),
-          Box( w: MonthlySpending() ),
-        ],
-      ),
-
-      // COLUMN 3
-      Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Box( w: Timewarrior() ),
-          Box( w: Habits() ),
-        ],
-      ),
-      ],
-    );
-  }
-}
+import '../utils.dart';
 
 /* Shows profile picture and title. */
 class Profile extends StatelessWidget {
+  Profile({Key? key}) : super(key: key);
+
   final displayname = GlobalConfiguration().getValue("displayname");
   final titles = GlobalConfiguration().getValue("titles");
   final _random = Random();
-  late var title = titles[_random.nextInt(titles.length)];
+  late final title = titles[_random.nextInt(titles.length)];
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [ 
         Container(
-          decoration: BoxDecoration(
-            color: Colors.blue[300],
-            borderRadius: const BorderRadius.all(Radius.circular(50)),
+          decoration: const BoxDecoration(
+            color: Color(0xFF2D4F67),
+            borderRadius: BorderRadius.all(Radius.circular(50)),
           ),
           child: Image.asset(
             'assets/images/pfp.png',
             height: 100,
           ),
         ),
-        Text(displayname),
+        RichText(
+          text: TextSpan(
+            text: displayname,
+            style: const TextStyle(
+              fontSize: 22,
+              color: Color(0xFF2D4F67),
+            ),
+          ), 
+        ),
         Text(title),
       ],
     );
@@ -81,6 +46,8 @@ class Profile extends StatelessWidget {
 
 /* Displays date and time. */
 class DateAndTime extends StatelessWidget {
+  const DateAndTime ({Key? key}) : super(key: key);
+  
   @override
   Widget build(BuildContext context) {
     DateTime now = DateTime.now();
@@ -89,8 +56,24 @@ class DateAndTime extends StatelessWidget {
     
     return Column(
       children: [
-        Text(time),
-        Text(date),
+        //Text(time),
+        RichText(
+          text: TextSpan(
+            text: time,
+            style: const TextStyle(
+              fontSize: 30,
+              color: Color(0xFF2D4F67),
+            ),
+          ),
+        ),
+        RichText(
+          text: TextSpan(
+            text: date,
+            style: const TextStyle(
+              color: Color(0xFFDCD7BA),
+            ),
+          ),
+        ),
       ],
     );
   }
@@ -98,17 +81,26 @@ class DateAndTime extends StatelessWidget {
 
 /* Shows goals defined in user config file. */
 class Goals extends StatelessWidget {
+  Goals({Key? key}) : super(key: key);
+
+  final goals = GlobalConfiguration().getValue("goals");
+  
   @override
   Widget build(BuildContext context) {
     return Column (
-      children: const [
-        WidgetHeader(text: 'Goals'),
+      children: [
+        const WidgetHeader(text: 'Current Goals'),
+        Text(goals[0]), // TODO: make for loop
+        Text(goals[1]),
+        Text(goals[2]),
       ]
     );
   }
 }
 
 class UpcomingEvents extends StatelessWidget {
+  const UpcomingEvents({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Column (
@@ -120,6 +112,8 @@ class UpcomingEvents extends StatelessWidget {
 }
 
 class UpcomingTasks extends StatelessWidget {
+  const UpcomingTasks({Key? key}) : super(key: key);
+  
   @override
   Widget build(BuildContext context) {
     return Column (
@@ -131,6 +125,23 @@ class UpcomingTasks extends StatelessWidget {
 }
 
 class MonthlySpending extends StatelessWidget {
+  MonthlySpending({Key? key}) : super(key: key);
+  
+  final Map<String, double> dataMap = {
+    "Flutter": 5,
+    "React": 3,
+    "Xamarin": 2,
+    "Ionic": 2,
+  };
+
+  final colorList = <Color>[
+    const Color(0xfffdcb6e),
+    const Color(0xff0984e3),
+    const Color(0xfffd79a8),
+    const Color(0xffe17055),
+    const Color(0xff6c5ce7),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Column (
@@ -142,6 +153,8 @@ class MonthlySpending extends StatelessWidget {
 }
 
 class Timewarrior extends StatelessWidget {
+  const Timewarrior({Key? key}) : super(key: key);
+  
   @override
   Widget build(BuildContext context) {
     return Column (
@@ -153,6 +166,8 @@ class Timewarrior extends StatelessWidget {
 }
 
 class Habits extends StatelessWidget {
+  const Habits({Key? key}) : super(key: key);
+  
   @override
   Widget build(BuildContext context) {
     return Column (

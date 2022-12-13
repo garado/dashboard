@@ -5,11 +5,13 @@
 import 'package:flutter/material.dart';
 import 'package:global_configuration/global_configuration.dart';
 
-import 'home.dart';
+import 'navrail.dart';
+import 'home/screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); /* ??? */
   await GlobalConfiguration().loadFromAsset("user");
+
   runApp(const MyApp());
 }
 
@@ -19,30 +21,26 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Cozy',
-      home: Scaffold(
-        body: Center(
-          child: Row(
-            children: [
-              VerticalAppBar(),
-              HomeTab(),
-            ],
-          )
-        )
+      theme: ThemeData(
+        scaffoldBackgroundColor: const Color(0xFF16161D),
+        textTheme: Theme.of(context).textTheme.apply(
+          bodyColor: const Color(0xFFDCD7BA)
+        ),
       ),
+      home: Scaffold(
+          body: Center(
+            child: Row(
+              children: [
+                const NavRail(),
+                HomeTab(),
+                //AgendaTab(),
+              ],
+            )
+          )
+        ),
     );
   }
 }
 
-class VerticalAppBar extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return RotatedBox(
-      quarterTurns: 3,
-      child: AppBar(
-        primary: false,
-        title: const Text('Bar'),
-      ),
-    );
-  }
-}
