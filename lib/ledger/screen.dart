@@ -40,18 +40,18 @@ class _LedgerScreen extends StatelessWidget {
       children: [ 
         Expanded(
           flex: 3,
-          child: Column1(),
+          child: _Column1(),
           ),
         Expanded(
           flex: 7,
-          child: Column2(),
+          child: _Column2(),
           ),
       ],
     );
   }
 }
 
-class Column1 extends StatelessWidget {
+class _Column1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -82,17 +82,17 @@ class Column1 extends StatelessWidget {
   }
 }
 
-class Column2 extends StatelessWidget {
+class _Column2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        // Expanded(
-        //   flex: 30,
-        //   child: Box(w: UpcomingEvents()),
-        //   ),
+        Expanded(
+          flex: 30,
+          child: Box(w: Transactions()),
+          ),
 
         // Expanded(
         //   flex: 30,
