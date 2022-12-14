@@ -34,7 +34,7 @@ class Profile extends StatelessWidget {
           ),
         ),
         const Padding(padding: EdgeInsets.all(5.0)),
-        WidgetHeader(
+        WText(
           text: displayname,
           color: const Color(0xFF2D4F67),
           padding: 0.0),
@@ -57,7 +57,7 @@ class DateAndTime extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        WidgetHeader(
+        WText(
           text: time,
           color: const Color(0xFFDCD7BA),
           padding: 0.0,
@@ -89,7 +89,7 @@ class Goals extends StatelessWidget {
     return Column (
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const WidgetHeader(text: 'Current Goals'),
+        const WText(text: 'Current Goals'),
         Text(goals[0]), // TODO: generate with for loop
         Text(goals[1]),
         Text(goals[2]),
@@ -106,7 +106,7 @@ class UpcomingEvents extends StatelessWidget {
     return Column (
       mainAxisAlignment: MainAxisAlignment.center,
       children: const [
-        WidgetHeader(text: 'Events'),
+        WText(text: 'Events'),
       ],
     ); 
   }
@@ -120,7 +120,7 @@ class UpcomingTasks extends StatelessWidget {
     return Column (
       mainAxisAlignment: MainAxisAlignment.center,
       children: const [
-        WidgetHeader(text: 'Tasks'),
+        WText(text: 'Tasks'),
       ],
     ); 
   }
@@ -149,7 +149,7 @@ class MonthlySpending extends StatelessWidget {
     return Column (
       mainAxisAlignment: MainAxisAlignment.center,
       children: const [
-        WidgetHeader(text: 'Monthly Spending'),
+        WText(text: 'Monthly Spending'),
       ],
     ); 
   }
@@ -163,7 +163,7 @@ class Timewarrior extends StatelessWidget {
     return Column (
       mainAxisAlignment: MainAxisAlignment.center,
       children: const [
-        WidgetHeader(text: 'Timewarrior'),
+        WText(text: 'Timewarrior'),
       ],
     ); 
   }

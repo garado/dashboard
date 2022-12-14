@@ -13,13 +13,17 @@ class Balances extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Box(
-          w: _Checking(),
-          bg: const Color(0xFF2D4F67),
+        Expanded(
+          child: Box(
+            w: _Checking(),
+            bg: const Color(0xFF2D4F67),
+            ),
           ),
-        Box(
-          w: _Savings(),
-          bg: const Color(0xFF2D4F67),
+        Expanded(
+          child: Box(
+            w: _Savings(),
+            bg: const Color(0xFF2D4F67),
+            ),
           ),
       ],
     );
@@ -31,6 +35,8 @@ class _Checking extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         const Text('Checking'),
         _CheckingBal(),
@@ -46,12 +52,12 @@ class _CheckingBal extends StatelessWidget {
       future: parseCheckingBalance(),
       builder: (context, AsyncSnapshot<String> snapshot) {
         if (snapshot.hasData) {
-          return WidgetHeader(
+          return WText(
             text: snapshot.data.toString(),
             color: const Color(0xFFDCD7BA),
           );
         } else {
-          return const WidgetHeader(
+          return const WText(
             text: '\$----.--',
             color: Color(0xFFDCD7BA),
           );
@@ -80,12 +86,12 @@ class _SavingsBal extends StatelessWidget {
       future: parseSavingsBalance(),
       builder: (context, AsyncSnapshot<String> snapshot) {
         if (snapshot.hasData) {
-          return WidgetHeader(
+          return WText(
             text: snapshot.data.toString(),
             color: const Color(0xFFDCD7BA),
           );
         } else {
-          return const WidgetHeader(
+          return const WText(
             text: '\$----.--',
             color: Color(0xFFDCD7BA),
           );

@@ -18,12 +18,7 @@ class LedgerScreen extends StatelessWidget {
       body: Row(
         children: [
           const NavRail(),
-          Expanded(
-            child: Container(
-              margin: const EdgeInsets.all(5.0),
-              child: _LedgerScreen(),
-            ),
-          ),
+          ScreenContainer(s: _LedgerScreen()),
         ],
       ),
     );
@@ -39,11 +34,11 @@ class _LedgerScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [ 
         Expanded(
-          flex: 3,
+          flex: 35,
           child: _Column1(),
           ),
         Expanded(
-          flex: 7,
+          flex: 65,
           child: _Column2(),
           ),
       ],
@@ -59,19 +54,19 @@ class _Column1 extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Expanded(
-          flex: 28,
+          flex: 20,
           child: Balances()
         ),
 
         Expanded(
-          flex: 18,
+          flex: 12,
           child: Box(w: LedgerActions()),
           ),
 
-        // Expanded(
-        //   flex: 26,
-        //   child: Box(w: Goals()),
-        //   ),
+        Expanded(
+          flex: 68,
+          child: Box(w: Budget()),
+          ),
 
         // Expanded(
         //   flex: 28,
@@ -93,11 +88,6 @@ class _Column2 extends StatelessWidget {
           flex: 30,
           child: Box(w: Transactions()),
           ),
-
-        // Expanded(
-        //   flex: 30,
-        //   child: Box(w: UpcomingTasks()),
-        //   ),
 
         // Expanded(
         //   flex: 40,

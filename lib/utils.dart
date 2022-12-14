@@ -9,34 +9,58 @@ import 'package:flutter/material.dart';
 /* █░█░█ █ █▀▄ █▀▀ █▀▀ ▀█▀ █▀ */ 
 /* ▀▄▀▄▀ █ █▄▀ █▄█ ██▄ ░█░ ▄█ */ 
 
-/* Creates widget header 
+/* Screen containers
+ * @param s The screen to be contained */
+class ScreenContainer extends StatelessWidget {
+  const ScreenContainer ({
+    Key? key,
+    required this.s}) : super(key: key);
+
+  final Widget? s;
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Container(
+      margin: const EdgeInsets.all(20.0),
+      child: s,
+      ),
+    );
+  }
+}
+
+/* Easier text formatting
  * @param text  The header text
  * @param color The text color */
-class WidgetHeader extends StatelessWidget {
-  const WidgetHeader ({
+class WText extends StatelessWidget {
+  const WText ({
     Key? key, 
     @required this.text, 
-    this.color = const Color(0xFF2D4F67),
+    // this.color = const Color(0xFF2D4F67),
+    this.color = const Color(0xFFDCD7BA),
     this.padding = 5.0,
+    this.fontFamily,
+    this.textAlign = TextAlign.center,
     this.size = 25.0}) : super(key: key);
   
   final String? text;
-  final Color? color;
+  final Color?  color;
   final double? padding;
   final double? size;
+  final String? fontFamily;
+  final TextAlign? textAlign;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        RichText(
-          text: TextSpan(
-            text: text,
-            style: TextStyle(
-              fontFamily: 'RobotoMono',
-              fontSize: size,
-              color: color,
-            ),
+        Text(
+          text!,
+          textAlign: textAlign,
+          overflow: TextOverflow.ellipsis,
+          style: TextStyle(
+            fontFamily: fontFamily,
+            fontSize: size,
+            color: color,
           ),
         ),
         Padding(

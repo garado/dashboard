@@ -17,12 +17,7 @@ class HomeScreen extends StatelessWidget {
       body: Row(
         children: [
           const NavRail(),
-          Expanded(
-            child: Container(
-              margin: const EdgeInsets.all(5.0),
-              child: _HomeScreen(),
-            ),
-          ),
+          ScreenContainer(s: _HomeScreen()),
         ],
       ),
     );
