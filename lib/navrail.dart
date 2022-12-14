@@ -17,10 +17,10 @@ class _NavRail extends State<NavRail> {
   final routes = [ 
     '/', 
     '/agenda', 
-    '/agenda', 
-    '/agenda', 
-    '/agenda', 
-    '/agenda', 
+    '/agenda', // tasks
+    '/ledger', 
+    '/agenda', // time
+    '/agenda', // settings
   ];
 
   changeDestination(int index) {

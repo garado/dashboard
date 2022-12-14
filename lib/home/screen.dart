@@ -3,7 +3,9 @@
 /* █▀█ █▄█ █░▀░█ ██▄    ░█░ █▀█ █▄█ */ 
 
 import 'package:flutter/material.dart';
-import 'widget.dart';
+import 'widget/widget.dart';
+import 'widget/music.dart';
+import 'widget/habits.dart';
 import '../navrail.dart';
 import '../utils.dart';
 
@@ -16,8 +18,11 @@ class HomeScreen extends StatelessWidget {
         children: [
           const NavRail(),
           Expanded(
-            child: _HomeScreen(),
+            child: Container(
+              margin: const EdgeInsets.all(5.0),
+              child: _HomeScreen(),
             ),
+          ),
         ],
       ),
     );
@@ -55,24 +60,24 @@ class Column1 extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Expanded(
-          flex: 3,
+          flex: 28,
           child: Box(
             w: Profile(),
             bg: const Color(0xFF16161D) ),
           ),
 
         Expanded(
-          flex: 2,
+          flex: 18,
           child: Box(w: DateAndTime()),
           ),
 
         Expanded(
-          flex: 3,
+          flex: 26,
           child: Box(w: Goals()),
           ),
 
         Expanded(
-          flex: 2,
+          flex: 28,
           child: Box(w: MusicPlayer()),
           ),
         ],
@@ -88,17 +93,17 @@ class Column2 extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Expanded(
-          flex: 1,
+          flex: 30,
           child: Box(w: UpcomingEvents()),
           ),
 
         Expanded(
-          flex: 2,
+          flex: 30,
           child: Box(w: UpcomingTasks()),
           ),
 
         Expanded(
-          flex: 2,
+          flex: 40,
           child: Box(w: MonthlySpending()),
           ),
         ],
@@ -114,12 +119,12 @@ class Column3 extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Expanded(
-          flex: 1,
+          flex: 5,
           child: Box(w: Timewarrior()),
           ),
 
         Expanded(
-          flex: 2,
+          flex: 5,
           child: Box(w: Habits()),
           ),
         ],

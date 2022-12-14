@@ -16,10 +16,14 @@ class WidgetHeader extends StatelessWidget {
   const WidgetHeader ({
     Key? key, 
     @required this.text, 
-    this.color = const Color(0xFF2D4F67) }) : super(key: key); /* the hell is this */
+    this.color = const Color(0xFF2D4F67),
+    this.padding = 5.0,
+    this.size = 25.0}) : super(key: key);
   
   final String? text;
   final Color? color;
+  final double? padding;
+  final double? size;
 
   @override
   Widget build(BuildContext context) {
@@ -30,13 +34,13 @@ class WidgetHeader extends StatelessWidget {
             text: text,
             style: TextStyle(
               fontFamily: 'RobotoMono',
-              fontSize: 22,
+              fontSize: size,
               color: color,
             ),
           ),
         ),
-        const Padding(
-          padding: EdgeInsets.all(5.0),
+        Padding(
+          padding: EdgeInsets.all(padding!),
         ),
       ],
     );
@@ -50,7 +54,7 @@ class Box extends StatelessWidget {
   const Box ({
     Key? key, 
     @required this.w, 
-    this.bg = const Color(0xFF1F1F28) }) : super(key: key); /* the hell is this */
+    this.bg = const Color(0xFF1F1F28) }) : super(key: key);
   
   final Widget? w;
   final Color? bg;
@@ -61,6 +65,7 @@ class Box extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.all(10.0),
         padding: const EdgeInsets.all(20.0),
+        alignment: Alignment.center,
         decoration: BoxDecoration(
           color: bg,
           borderRadius: const BorderRadius.all(Radius.circular(8))

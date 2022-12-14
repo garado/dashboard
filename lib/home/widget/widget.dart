@@ -1,10 +1,13 @@
 
+/* █░█ █▀█ █▀▄▀█ █▀▀    █░█░█ █ █▀▄ █▀▀ █▀▀ ▀█▀ █▀ */ 
+/* █▀█ █▄█ █░▀░█ ██▄    ▀▄▀▄▀ █ █▄▀ █▄█ ██▄ ░█░ ▄█ */ 
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:global_configuration/global_configuration.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'dart:math';
-import '../utils.dart';
+import '../../utils.dart';
 
 /* Shows profile picture and title. */
 class Profile extends StatelessWidget {
@@ -18,6 +21,7 @@ class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [ 
         Container(
           decoration: const BoxDecoration(
@@ -29,9 +33,11 @@ class Profile extends StatelessWidget {
             height: 100,
           ),
         ),
+        const Padding(padding: EdgeInsets.all(5.0)),
         WidgetHeader(
           text: displayname,
-          color: const Color(0xFF2D4F67)),
+          color: const Color(0xFF2D4F67),
+          padding: 0.0),
         Text(title),
       ],
     );
@@ -45,28 +51,25 @@ class DateAndTime extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     DateTime now = DateTime.now();
-    String time = DateFormat('kk:mm').format(now);
-    String date = DateFormat('EEE MMMM d').format(now);
+    String time = DateFormat('h:mm a').format(now);
+    String date = DateFormat('EEEE MMMM d').format(now);
     
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        //Text(time),
-        RichText(
-          text: TextSpan(
-            text: time,
-            style: const TextStyle(
-              fontSize: 40,
-              color: Color(0xFFDCD7BA),
-            ),
-          ),
+        WidgetHeader(
+          text: time,
+          color: const Color(0xFFDCD7BA),
+          padding: 0.0,
+          size: 35.0,
         ),
         RichText(
           text: TextSpan(
             text: date,
             style: const TextStyle(
-              fontSize: 20,
-              color: Color(0xFF2D4F67),
               fontFamily: 'RobotoMono',
+              fontSize: 16,
+              color: Color(0xFF2D4F67),
             ),
           ),
         ),
@@ -84,6 +87,7 @@ class Goals extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column (
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         const WidgetHeader(text: 'Current Goals'),
         Text(goals[0]), // TODO: generate with for loop
@@ -94,19 +98,13 @@ class Goals extends StatelessWidget {
   }
 }
 
-class MusicPlayer extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return const Text('Music player');
-  }
-}
-
 class UpcomingEvents extends StatelessWidget {
   const UpcomingEvents({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column (
+      mainAxisAlignment: MainAxisAlignment.center,
       children: const [
         WidgetHeader(text: 'Events'),
       ],
@@ -120,6 +118,7 @@ class UpcomingTasks extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column (
+      mainAxisAlignment: MainAxisAlignment.center,
       children: const [
         WidgetHeader(text: 'Tasks'),
       ],
@@ -148,6 +147,7 @@ class MonthlySpending extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column (
+      mainAxisAlignment: MainAxisAlignment.center,
       children: const [
         WidgetHeader(text: 'Monthly Spending'),
       ],
@@ -161,21 +161,9 @@ class Timewarrior extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column (
+      mainAxisAlignment: MainAxisAlignment.center,
       children: const [
         WidgetHeader(text: 'Timewarrior'),
-      ],
-    ); 
-  }
-}
-
-class Habits extends StatelessWidget {
-  const Habits({Key? key}) : super(key: key);
-  
-  @override
-  Widget build(BuildContext context) {
-    return Column (
-      children: const [
-        WidgetHeader(text: 'Habits'),
       ],
     ); 
   }
