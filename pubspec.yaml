@@ -44,6 +44,7 @@ dependencies:
   syncfusion_flutter_charts: ^20.3.61
   process_run: ^0.12.3+2
   path_provider: ^2.0.11
+  cached_network_image: ^3.2.3
 
 dev_dependencies:
   flutter_test:
@@ -101,7 +102,7 @@ flutter:
     - family: RobotoMono
       fonts:
         - asset: fonts/RobotoMono.ttf
-          weight: 700
+          weight: 600 
 
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

@@ -36,6 +36,8 @@ class _NavRail extends State<NavRail> {
     return NavigationRail(
       selectedIndex: _selectedIndex,
       groupAlignment: 0, // centers icons 
+      extended: false,
+      minWidth: 50,
       backgroundColor: const Color(0xFF1F1F28),
       onDestinationSelected: changeDestination, 
       destinations: const <NavigationRailDestination>[

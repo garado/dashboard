@@ -71,9 +71,7 @@ class WText extends StatelessWidget {
   }
 }
 
-/* Creates a box around a widget
- * @param w   The widget to be boxed
- * @param bg  The background color of the box */
+/// Creates a box around a widget
 class Box extends StatelessWidget {
   const Box ({
     Key? key, 

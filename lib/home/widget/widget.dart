@@ -38,7 +38,13 @@ class Profile extends StatelessWidget {
           text: displayname,
           color: const Color(0xFF2D4F67),
           padding: 0.0),
-        Text(title),
+        WText(
+          text: title,
+          color: const Color(0xFFDCD7BA),
+          fontFamily: 'RobotoMono',
+          padding: 0,
+          size: 15.0,
+          ),
       ],
     );
   }
@@ -90,9 +96,12 @@ class Goals extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         const WText(text: 'Current Goals'),
-        Text(goals[0]), // TODO: generate with for loop
-        Text(goals[1]),
-        Text(goals[2]),
+        for (String g in goals) WText(
+          size: 15.0,
+          fontFamily: 'RobotoMono',
+          padding: 2.0,
+          text: g,
+          ),
       ]
     );
   }

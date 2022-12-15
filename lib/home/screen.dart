@@ -32,22 +32,22 @@ class _HomeScreen extends StatelessWidget {
       children: [ 
         Expanded(
           flex: 3,
-          child: Column1(),
+          child: _Column1(),
           ),
         Expanded(
           flex: 4,
-          child: Column2(),
+          child: _Column2(),
           ),
         Expanded(
           flex: 3,
-          child: Column3(),
+          child: _Column3(),
           ),
       ],
     );
   }
 }
 
-class Column1 extends StatelessWidget {
+class _Column1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -55,19 +55,21 @@ class Column1 extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Expanded(
-          flex: 28,
+          flex: 25,
           child: Box(
             w: Profile(),
+            margin: 0.0,
+            padding: 0.0,
             bg: const Color(0xFF16161D) ),
           ),
 
-        Expanded(
+        const Expanded(
           flex: 18,
           child: Box(w: DateAndTime()),
           ),
 
         Expanded(
-          flex: 26,
+          flex: 29,
           child: Box(w: Goals()),
           ),
 
@@ -83,7 +85,7 @@ class Column1 extends StatelessWidget {
   }
 }
 
-class Column2 extends StatelessWidget {
+class _Column2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -109,7 +111,7 @@ class Column2 extends StatelessWidget {
   }
 }
 
-class Column3 extends StatelessWidget {
+class _Column3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
