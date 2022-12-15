@@ -78,17 +78,21 @@ class Box extends StatelessWidget {
   const Box ({
     Key? key, 
     @required this.w, 
+    this.padding = 20.0,
+    this.margin = 10.0,
     this.bg = const Color(0xFF1F1F28) }) : super(key: key);
   
   final Widget? w;
   final Color? bg;
+  final double? padding;
+  final double? margin;
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        margin: const EdgeInsets.all(10.0),
-        padding: const EdgeInsets.all(20.0),
+        margin: EdgeInsets.all(margin!),
+        padding: EdgeInsets.all(padding!),
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: bg,

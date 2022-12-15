@@ -73,7 +73,10 @@ class Column1 extends StatelessWidget {
 
         Expanded(
           flex: 28,
-          child: Box(w: MusicPlayer()),
+          child: MusicPlayer(),
+          // child: Box(
+          //   w: MusicPlayer(),
+          //   padding: 0.0),
           ),
         ],
       );
